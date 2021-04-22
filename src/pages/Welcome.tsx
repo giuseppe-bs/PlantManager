@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
-import { View, Text, Image, TouchableOpacity} from 'react-native';
-
+import { 
+    Text, 
+    Image, 
+    SafeAreaView,
+    TouchableOpacity
+} from 'react-native';
+import {Feather} from '@expo/vector-icons';
 import WelcomeStyle from '../../styles/WelcomeStyle';
 import wateringImg from  '../assets/watering.png';
-import { Button } from '../components/Button';
 
 
 export function Welcome(){
@@ -17,22 +21,32 @@ export function Welcome(){
 
     //return the screen apearance
     return(
-        <View style={WelcomeStyle.container}>
+        <SafeAreaView style={WelcomeStyle.container}>
 
             <Text style={WelcomeStyle.title}>
                 Gerencie{'\n'}suas plantas de{'\n'}forma fácil
             </Text>
 
-            {/*the image will only be visible if the visible vatiable is true*/}
-            {visible && <Image source={wateringImg} style={WelcomeStyle.image}/>}
+            
+            <Image 
+                source={wateringImg} 
+                style={WelcomeStyle.image}
+                resizeMode="contain"
+            />
 
             <Text style={WelcomeStyle.subTitle}>
                 Não esqueça mais de regar suas plantas. 
                 Nós cuidamos de lembrar você sempre que precisar.
             </Text>
 
-            {/*By using the extend on the TouchableOpacityProp it's possible to use onPress for example*/}
-            <Button title = {'>'} onPress = {handleVisibility}/>
-        </View>
+            <TouchableOpacity 
+                style={WelcomeStyle.button} 
+                activeOpacity={0.6}
+            >
+                <Text style={WelcomeStyle.buttonIcon}>
+                    <Feather name ="chevron-right" style={WelcomeStyle.buttonIcon}/>
+                </Text>                
+            </TouchableOpacity>
+        </SafeAreaView>
     )
 }

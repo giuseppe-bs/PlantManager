@@ -1,18 +1,19 @@
-import {StyleSheet} from 'react-native'; 
+import {StyleSheet, Dimensions} from 'react-native'; 
 import colors from './colors';
+
 
 export default StyleSheet.create({
     container: {
         flex:1,
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     },
     title:{
         fontSize:32,
         fontWeight:'bold',
         textAlign:'center',
         color: colors.heading ,
-        marginTop:38
+        
     },
     subTitle:{
         fontSize:18,
@@ -20,21 +21,20 @@ export default StyleSheet.create({
         paddingHorizontal:20,
         color: colors.body_dark
     },
+    image:{
+        height: Dimensions.get('window').width * 0.7
+    },
     button:{
         backgroundColor:colors.green,
         justifyContent:'center',
         alignItems:'center',
         borderRadius:16,
         marginBottom:14,
-        height:56,
-        width:56
+        height: 56,
+        width: 56
     },
-    image:{
-        width:292,
-        height:284
-    },
-    buttonText:{
+    buttonIcon:{
         color: colors.white,
-        fontSize:26
+        fontSize:24
     }
 })
