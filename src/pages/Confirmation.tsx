@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Style from '../../styles/Confirmation'
+import Style from '../styles/Confirmation'
 import { 
     SafeAreaView, 
     Text, 
@@ -7,31 +7,53 @@ import {
 } from 'react-native'
 import { Button } from '../components/Button'
 import { useNavigation } from '@react-navigation/core'
+import { useRoute } from '@react-navigation/native'
 
+interface Params {
+    title: string;
+    subtitle: string;
+    buttonTitle: string;
+    icon: 'smile' | 'hug',
+    nextScreen: string;
+}
+
+const emojis = {
+    hug: '🤗',
+    smile: '😄'
+}
 export function Confirmation(){
     const navigation = useNavigation();
+    const routes = useRoute();
+
+    const {
+        title,
+        subtitle,
+        buttonTitle,
+        icon,
+        nextScreen
+    } = routes.params as Params;
 
     function handleMoveOn(){
-        navigation.navigate('PlantSelect')
+        navigation.navigate(nextScreen)
     }
     
     return(
         <SafeAreaView style={Style.container}>
             <View style={Style.wrapper}>
                 <Text style={Style.emoji}>
-                    😁
+                    {emojis[icon]}
                 </Text>
                 <View style={Style.content}>                
                     <Text style={Style.title}>
-                        Prontinho
+                        {title}
                     </Text>
                     <Text style={Style.subtitle}>
-                        Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
+                        {subtitle}
                     </Text>
                 </View>
                 <View style={Style.footer}>
                     <Button 
-                        title="Confirmar"
+                        title={buttonTitle}
                         onPress={handleMoveOn}
                     />
                 </View>

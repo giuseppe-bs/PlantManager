@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import {Feather} from '@expo/vector-icons';
-import WelcomeStyle from '../../styles/WelcomeStyle';
+import WelcomeStyle from '../styles/WelcomeStyle';
 import wateringImg from  '../assets/watering.png';
 import { useNavigation } from '@react-navigation/core';
 
