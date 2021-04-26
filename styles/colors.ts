@@ -6,6 +6,7 @@ export default {
   heading: '#52665A',
   body_dark: '#738078',
   body_light: '#AAB2AD',
+  body: '#5C6660',
 
   background: '#FFFFFF',
   shape: '#F0F0F0',
