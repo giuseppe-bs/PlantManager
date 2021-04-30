@@ -87,7 +87,7 @@ export function PlantSave(){
                     />
 
                     <Text style={styles.plantName}>
-                    {plant.name}
+                        {plant.name}
                     </Text>
                     <Text style={styles.plantAbout}>
                         {plant.about} 

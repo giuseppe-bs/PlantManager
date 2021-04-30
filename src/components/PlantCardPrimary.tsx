@@ -9,9 +9,18 @@ import { SvgFromUri } from 'react-native-svg';
 import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 
+/**
+ * Plant Card Component Properties
+ */
 interface PlantProps extends RectButtonProps{
     data:{
+        /**
+         * the name of the plant that will be displayed
+         */
         name:string;
+        /**
+         * a string url that refers to the image of the plant
+         */
         photo: string;
     }
 }

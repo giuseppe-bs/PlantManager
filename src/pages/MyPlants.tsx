@@ -8,16 +8,17 @@ import {
     Alert
 } from 'react-native';
 
+import { pt } from 'date-fns/locale';
+import { formatDistance } from 'date-fns';
+
 import { Header } from '../components/Header';
+import { PlantProps, loadPlant, removePlant } from '../libs/storage';
+import { PlantCardSecondary } from '../components/PlantCardSecondary';
+import { Load } from '../components/Load';
 
 import waterdrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
-import { PlantProps, loadPlant, removePlant } from '../libs/storage';
-import { formatDistance } from 'date-fns';
-import { pt } from 'date-fns/locale';
 import fonts from '../styles/fonts';
-import { PlantCardSecondary } from '../components/PlantCardSecondary';
-import { Load } from '../components/Load';
 
 export function MyPlants() {
     const [myPlants, setMyPlants] = useState<PlantProps[]>([]);

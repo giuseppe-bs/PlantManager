@@ -1,14 +1,23 @@
+//react import
 import React, { useState } from 'react'
-import Style from '../styles/Confirmation'
+//react-native components import
 import { 
     SafeAreaView, 
     Text, 
     View     
 } from 'react-native'
+
+//internal component import
 import { Button } from '../components/Button'
+
+//external libs component import
 import { useNavigation } from '@react-navigation/core'
 import { useRoute } from '@react-navigation/native'
 
+//import the confirmation page style
+import Style from '../styles/Confirmation'
+
+//interface for the data from the previous page
 interface Params {
     title: string;
     subtitle: string;
@@ -17,14 +26,19 @@ interface Params {
     nextScreen: string;
 }
 
+//emojis
 const emojis = {
     hug: '🤗',
     smile: '😄'
 }
+
+
 export function Confirmation(){
+    //const for navigation and data fetch
     const navigation = useNavigation();
     const routes = useRoute();
 
+    //get the data from the previus page
     const {
         title,
         subtitle,
@@ -33,10 +47,16 @@ export function Confirmation(){
         nextScreen
     } = routes.params as Params;
 
+    /**
+     * handler function for calling the navigation to the next screen     
+     * @param void
+     * @returns void 
+    */
     function handleMoveOn(){
         navigation.navigate(nextScreen)
     }
     
+    //render
     return(
         <SafeAreaView style={Style.container}>
             <View style={Style.wrapper}>

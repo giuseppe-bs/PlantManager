@@ -1,3 +1,4 @@
+//import from the react and react-native
 import React from 'react';
 import { 
     Text, 
@@ -6,14 +7,25 @@ import {
     StyleSheet
 } from 'react-native';
 
+//color and font imports
 import colors from '../styles/colors';
 import fonts from '../styles/fonts'
 
+/** 
+ * Button component properties
+*/
 interface ButtonProps extends TouchableOpacityProps{
+    /**
+     * the text that will be displayed inside of the button
+     */
     title: string;
-    //width: 
 }
 
+/**
+ * exports a green touchableopacity button with a written title
+ * @param title string, displayed text
+ * @returns the button component
+ */
 export function Button({title, ... rest} : ButtonProps){
     return(
         <TouchableOpacity 
@@ -28,6 +40,7 @@ export function Button({title, ... rest} : ButtonProps){
     )
 }
 
+//sets the styles for many components inside the button
 const styles = StyleSheet.create({
     button:{
         backgroundColor:colors.green,

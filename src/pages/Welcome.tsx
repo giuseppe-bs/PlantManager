@@ -1,3 +1,4 @@
+//import from react and react-native
 import React, {useState} from 'react';
 import { 
     Text, 
@@ -6,16 +7,20 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {Feather} from '@expo/vector-icons';
-import WelcomeStyle from '../styles/WelcomeStyle';
-import wateringImg from  '../assets/watering.png';
+
+//import from external libs
+import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 
+//import from internal libs
+import WelcomeStyle from '../styles/WelcomeStyle';
+import wateringImg from  '../assets/watering.png';
 
 export function Welcome(){
     //use State has a value and a function related to that function
     const [visible, setVisible] = useState(false);
 
+    //navigation const will e used for pages navigation
     const navigation = useNavigation();
 
     //declaration of a handler function to change the value of the visible variable
@@ -23,6 +28,7 @@ export function Welcome(){
         setVisible(!visible)
     }
 
+    //delaration of a handler function to call the navigation to the next page
     function handleStart(){
         navigation.navigate("UserIdentification")
     }
@@ -30,7 +36,8 @@ export function Welcome(){
     //return the screen apearance
     return(
         <SafeAreaView style={WelcomeStyle.container}>
-            <View style={WelcomeStyle.wrapper}>            
+            <View style={WelcomeStyle.wrapper}>   
+
                 <Text style={WelcomeStyle.title}>
                     Gerencie{'\n'}suas plantas de{'\n'}forma fácil
                 </Text>

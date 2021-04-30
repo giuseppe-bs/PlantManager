@@ -1,3 +1,4 @@
+//the external libs imports, such as: react, react-native, asyncstorage
 import React, { useEffect, useState } from 'react'
 import {
     View,
@@ -8,14 +9,24 @@ import {
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+//import of the visuals sets of this project
 import colors from '../styles/colors'
 import userImg from '../../assets/icon.png'
 import fonts from '../styles/fonts';
 
+/**
+ * Is a header component that display the userName,
+ * greets them,show their profile Image 
+ * @returns the header component
+ */
 export function Header(){
     const [userName, setUserName] = useState<string>();
 
     useEffect(() => {
+        /**
+         * gets the user name from the storage and sets the const
+         * userName
+         */
         async function loadStorageUserName() {
             const user = await AsyncStorage.getItem('@plantmanager:user');
             setUserName(user || '');
@@ -40,6 +51,7 @@ export function Header(){
     )
 }
 
+//this const contains the styles for the inner components 
 const styles = StyleSheet.create({
     container:{
         width:'100%',

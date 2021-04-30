@@ -20,7 +20,9 @@ import api from '../services/api'
 import Style from '../styles/PlantSelect'
 import colors from '../styles/colors'
 
-//interfaces declarations
+/**
+ * Environment button Properties interface
+ * */
 interface EnvironmentProps{
     key: string;
     title: string;
@@ -52,6 +54,7 @@ export function PlantSelect(){
 
     const navigation = useNavigation()
 
+    
     function handleEnvironmentSelected(environment: string){
         setEnvironmentSelected(environment)
    
