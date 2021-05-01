@@ -2,21 +2,60 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
 import { format } from 'date-fns';
 
+/**
+ * interface for the plants propertis from the api
+ */
 export interface PlantProps {
+    /**
+     * identification string for the plant
+     */
     id: string;
+    /**
+     * plant name string
+     */
     name: string;
+    /**
+     * extra text info about the plant
+     */
     about: string;
+    /**
+     * watering text tips
+     */
     water_tips: string;
+    /**
+     * plant photo uri string
+     */
     photo: string;
+    /**
+     * list of the plant's prefered environments
+     */
     environments: [string];
+    /**
+     * watering frequency
+     */
     frequency: {
-      times: number;
-      repeat_every: string;
+        /**
+         * how many times the plant must be watered
+         */    
+        times: number;
+        /**
+         * the time space the plant watering must occur
+         */
+        repeat_every: string;
     };
+    /**
+     * the watering time the user setted
+     */
     hour: string;
+    /**
+     * when to notificate the user
+     */
     dateTimeNotification: Date;
 }
 
+/**
+ * 
+ */
 export interface StoragePlantProps {
     [id: string]: {
         data: PlantProps;
@@ -24,11 +63,17 @@ export interface StoragePlantProps {
     }
 }
 
+/**
+ * A async function for saving the plant in the storage
+ * @param plant 
+ * @returns void
+ */
 export async function savePlant(plant: PlantProps) : Promise<void> {
     try {
         const nexTime = new Date(plant.dateTimeNotification);
         const now = new Date();
 
+        //dismembers the frequency data
         const { times, repeat_every } = plant.frequency;
         if(repeat_every === 'week'){
             const interval = Math.trunc(7 / times);
